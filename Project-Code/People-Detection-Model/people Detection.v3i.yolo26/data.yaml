@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['person - v3 P']
+
+roboflow:
+  workspace: vic-bukru
+  project: people-detection-nhwbv
+  version: 3
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/vic-bukru/people-detection-nhwbv/dataset/3
