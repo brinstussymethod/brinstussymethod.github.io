@@ -68,6 +68,8 @@
     - Tried to solve by using admin powershell command New-ItemProperty -Path `"HKLM:\SYSTEM\CurrentControlSet\Control\FileSystem" -Name "LongPathsEnabled" -Value 1 -PropertyType DWORD -Force` and restarting computer
         - FAILED Unknown Reason
     - Gave up and just skipped the files that are too long to export (this might cause issues when training we will see).
+    - Just unzipped it in co-lab instead
+    - watching that local model video might help with this issue. 
   - Huge error prompted when installing label studio on in my python envioronment, seems to be installed successfully so I will ignore it. (hopefully will not cause issues). Seems to be an issue with their own code when installing libraries? `raise InvalidRequirement(str(e)) from e pip._vendor.packaging.requirements.InvalidRequirement: Expected semicolon (after name with no version specifier) or end PasteScript==dev,>=1.6.3dev-r7326`
       - Turns out I just forgot the "-" in label-studio when installing it smh.
   - Error: (yolo-env1) C:\Users\Brian\Documents\Data-Science-Machine Learning\brinstussymethod.github.io\Project-Code\People-Detection-Model\my_model>curl -o yolo_detect.py https://www.ejtech.io/code/yolo_detect.py
@@ -99,7 +101,27 @@
     NVIDIA GeForce GTX 1070 Ti with CUDA capability sm_61 is not compatible with the current PyTorch installation.
     The current PyTorch install supports CUDA capabilities sm_75 sm_80 sm_86 sm_90 sm_100 sm_120.
     If you want to use the NVIDIA GeForce GTX 1070 Ti GPU with PyTorch, please check the instructions at https://pytorch.org/get-started/locally/
-    Solution: I just used an older version of Pytorch (CUDA 12.6) 
+    Solution: I just used an older version of Pytorch (CUDA 12.6)
+- Might need to create a parent repo for my projects and add neccesary git ignore files
+Here's how to do it:
+
+Create a new repo on GitHub (e.g. data-science-projects)
+Clone it locally
+Move your existing project folders into it
+Commit and push:
+
+git add .
+git commit -m "Added people detection project"
+git push
+
+Things to keep in mind:
+
+Add a .gitignore to exclude large files like .pt model weights, virtual environments, and __pycache__
+GitHub has a 100MB file size limit — your my_model.pt may exceed this. Use Git LFS (Large File Storage) for large model files
+Each project folder should have its own README.md
+
+Want help setting up the .gitignore for a machine learning project?
+
 <details>
 <summary>Click to expand</summary>
 
